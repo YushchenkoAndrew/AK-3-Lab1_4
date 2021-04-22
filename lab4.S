@@ -33,13 +33,19 @@ task1:
 	sub r4, r6
 	sbc r5, r7
 	
-	lsr r4, #1
+	// Update carry bit
+	rrxs r10, r5
 	asr r5, #1
-	lsr r4, #1
+	rrx r4, r4
+	// Get carry bit
+	rrxs r10, r5
 	asr r5, #1
+	rrx r4, r4
 
-	lsr r0, #1
+	// Get carry bit
+	rrxs r10, r1
 	asr r1, #1
+	rrx r0, r0
 	
 	add r0, r2
 	adc r1, r3
